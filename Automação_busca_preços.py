@@ -279,7 +279,7 @@ else:
 if nome_arquivo and nome_arquivo.exists():
     outlook = win32.Dispatch('outlook.application')
     mail = outlook.CreateItem(0)
-    mail.To = 'teste.nrlima@gmail.com'
+    mail.To = 'teste@gmail.com'  # Substitua pelo seu e-mail
     mail.Subject = 'Produto(s) Encontrado(s) na faixa de preço desejada'
     mail.HTMLBody = """
         <p>Prezados,</p>
