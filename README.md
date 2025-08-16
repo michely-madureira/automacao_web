@@ -1,65 +1,69 @@
-# 🛒 Automação Web para Busca e Comparação de Preços
-Projeto de automação web com Selenium para busca de informações
+# 🛒 Automação Inteligente de Busca e Comparação de Preços  
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Selenium](https://img.shields.io/badge/Selenium-Automation-brightgreen)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-![License](https://img.shields.io/badge/Licença-Pública-blue)
+Automatize sua pesquisa de preços em **Google Shopping** e **Buscapé** com Python + Selenium.  
+O sistema coleta resultados, aplica filtros personalizados e envia um **relatório em Excel por e-mail**.  
 
-
-
-## 📄 Visão Geral
-Este projeto implementa uma **automação web** utilizando **Python e Selenium** para realizar buscas de preços de produtos em plataformas como **Google Shopping** e **Buscapé**, aplicando filtros pré-definidos e enviando os resultados por e-mail.
-
-O objetivo principal é **reduzir o tempo e esforço** gastos na busca manual de preços, oferecendo uma solução escalável e adaptável para diferentes cenários corporativos ou pessoais.
+![Python](https://img.shields.io/badge/Python-3.10%2B-FFD43B?logo=python)
+![Selenium](https://img.shields.io/badge/Selenium-Web%20Automation-43B02A?logo=selenium) 
+![Excel](https://img.shields.io/badge/Excel-Reports-217346?logo=microsoft-excel) 
+![Outlook](https://img.shields.io/badge/Outlook-E--mail-0078D4?logo=microsoft-outlook) 
+![Status](https://img.shields.io/badge/Status-Funcional-8A2BE2) 
 
 
+## 📖 Visão Geral  
+O projeto elimina a necessidade de buscas manuais por preços, automatizando:  
+- Navegação em **Google Shopping** e **Buscapé**  
+- Filtros inteligentes de **preço mínimo/máximo** e **termos banidos**  
+- Geração de planilhas Excel com os melhores resultados  
+- Envio automático do relatório por **e-mail via Outlook**  
 
-## 🎯 Objetivos do Projeto
-- Automatizar a busca de preços de produtos em sites de e-commerce e comparadores de preços.
-- Filtrar resultados com base em:
-  - Faixa de preço mínima e máxima.
-  - Exclusão de termos indesejados.
-- Registrar e atualizar os resultados em planilha Excel.
-- Enviar relatório por e-mail com links diretos de compra.
+💡 Ideal para **consumidores atentos a promoções** e **empresas que monitoram concorrência**.  
 
 
 
-## 🛠️ Tecnologias Utilizadas
-- **Python 3.10+**
-- **Selenium** – Automação de navegação
-- **Pandas** – Manipulação de dados
-- **OpenPyXL** – Leitura e escrita de planilhas Excel
-- **smtplib** – Envio de e-mails via protocolo SMTP
+## 🎯 Funcionalidades  
+✔️ Busca automática em múltiplos sites (Google Shopping + Buscapé)  
+✔️ Filtros de preço e exclusão de termos indesejados  
+✔️ Relatórios organizados em Excel com múltiplas abas  
+✔️ Envio automático por e-mail com anexo  
 
 
 
-## 📂 Estrutura do Projeto
+## 🛠️ Tecnologias Utilizadas  
+- **Python 3.10+**  
+- **Selenium** → Automação de navegador  
+- **WebDriver Manager** → Gestão automática do ChromeDriver  
+- **Pandas + OpenPyXL** → Manipulação e exportação para Excel  
+- **win32com.client (Outlook API)** → Envio de relatórios por e-mail  
+
+
+
+## 📂 Estrutura do Projeto  
 ```plaintext
 automacao-busca-precos/
 │
-├── main.py              # Script principal
-├── produtos.xlsx        # Lista de produtos e critérios de busca
-├── requisitos.txt       # Lista de dependências do projeto
-└── README.md            # Documentação do projeto
+├── Automação_busca_preços.py   # Script principal
+├── buscas.xlsx                  # Planilha de entrada (produtos e critérios)
+├── ofertas_por_produto.xlsx     # Arquivo gerado com resultados (saída)
+└── README.md                    # Documentação
 ```
 
 
-
 ## ⚙️ Funcionamento
-1. **Entrada de dados –** O arquivo produtos.xlsx contém:
+1. **Planilha `buscas.xlsx` com colunas:**
 - Nome do produto
+- Termos banidos
 - Preço mínimo
 - Preço máximo
-- Termos a evitar
-2. **Processamento:**
-- Pesquisa automática no Google Shopping e Buscapé.
-- Filtragem de resultados por faixa de preço e termos.
-- Registro das informações relevantes (preço, loja, link).
-3. **Saída:**
-- Planilha atualizada com os resultados encontrados.
-- Envio de e-mail com resumo e links de compra.
 
+2. **Processamento:**
+- Busca automática no Google Shopping e Buscapé
+- Filtro inteligente dos resultados
+- Ordenação por menor preço
+
+3. **Saída:**
+- Planilha `ofertas_por_produto.xlsx` organizada em abas por produto
+- Envio por e-mail via Outlook com a planilha em anexo
 
 
 ## 🚀 Como Executar
@@ -70,28 +74,41 @@ automacao-busca-precos/
 
 2. **Instalar as dependências**
    ```bash  
-   pip install -r requisitos.txt
+   pip install selenium pandas openpyxl webdriver-manager pywin32
 
-3. **Configurar o e-mail**
-- Abra o arquivo `main.py`
-- Preencha:
-	* E-mail remetente
-	* Senha ou token de acesso
-	* E-mail destinatário
-4. **Adicionar a planilha de produtos**
-- Coloque o arquivo `produtos.xlsx` na pasta principal do projeto.
-5. **Rodar o projeto**
+3. Prepare a planilha `buscas.xlsx` com os produtos e critérios.
+
+4. Configure o e-mail no script (`Automação_busca_preços.py`):.
+- Endereço do remetente
+- Senha/token
+- Destinatário
+
+5. Execute o projeto:
    ```bash  
-   python main.py
+   python Automação_busca_preços.py
+
+
+## ⚠️ Observações Importantes
+
+🔄 Devido às constantes atualizações nos sites (Google Shopping e Buscapé), pode ser necessário adaptar o código periodicamente para garantir o funcionamento correto da automação.
+
 
 
 ## 📌 Possíveis Extensões
-- Conexão com APIs de marketplaces para maior velocidade e precisão.
-- Dashboard interativo para acompanhar resultados em tempo real.
-- Envio de alertas via WhatsApp ou Telegram.
-- Agendamento automático de execuções diárias.
+- Integração com APIs de marketplaces (Amazon, Mercado Livre, etc.)
+- Dashboard web interativo para acompanhar resultados
+- Notificações via Telegram/WhatsApp
+- Execução agendada (cron/Task Scheduler)
+
+
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas!
+Abra uma issue ou envie um pull request com melhorias.
 
 
 
 ## 📜 Licença
+
 Este projeto é de licença pública — você pode usar, modificar e distribuir livremente.
