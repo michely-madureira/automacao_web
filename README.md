@@ -1,13 +1,16 @@
 # 🛒 Automação Inteligente de Busca e Comparação de Preços  
 
-Automatize sua pesquisa de preços em **Google Shopping** e **Buscapé** com Python + Selenium.  
-O sistema coleta resultados, aplica filtros personalizados e envia um **relatório em Excel por e-mail**.  
-
 ![Python](https://img.shields.io/badge/Python-3.10%2B-FFD43B?logo=python)
 ![Selenium](https://img.shields.io/badge/Selenium-Web%20Automation-43B02A?logo=selenium) 
 ![Excel](https://img.shields.io/badge/Excel-Reports-217346?logo=microsoft-excel) 
 ![Outlook](https://img.shields.io/badge/Outlook-E--mail-0078D4?logo=microsoft-outlook) 
 ![Status](https://img.shields.io/badge/Status-Funcional-8A2BE2) 
+
+Automatize sua pesquisa de preços em **Google Shopping** e **Buscapé** com Python + Selenium.  
+O sistema coleta resultados, aplica filtros personalizados e envia um **relatório em Excel por e-mail**. 
+
+> ⚠️ **Importante:** por se tratar de automação web, **alterações no site (Google Shopping e Buscapé)** podem exigir **ajustes no código** (especialmente na seleção de elementos).
+
 
 
 ## 📖 Visão Geral  
@@ -43,8 +46,8 @@ O projeto elimina a necessidade de buscas manuais por preços, automatizando:
 automacao-busca-precos/
 │
 ├── Automação_busca_preços.py   # Script principal
-├── buscas.xlsx                  # Planilha de entrada (produtos e critérios)
-├── ofertas_por_produto.xlsx     # Arquivo gerado com resultados (saída)
+├── buscas.xlsx         # Planilha de entrada (produtos e critérios)
+├── ofertas_por_produto.xlsx    # Arquivo gerado com resultados (saída)
 └── README.md                    # Documentação
 ```
 
@@ -68,14 +71,15 @@ automacao-busca-precos/
 
 ## 🚀 Como Executar
 1. **Baixar o projeto**
-   ```bash
+   ```plaintext
    git clone https://github.com/seuusuario/automacao-busca-precos.git
    cd automacao-busca-precos
+   ```
 
 2. **Instalar as dependências**
-   ```bash  
+   ```plaintext 
    pip install selenium pandas openpyxl webdriver-manager pywin32
-
+   ```
 3. Prepare a planilha `buscas.xlsx` com os produtos e critérios.
 
 4. Configure o e-mail no script (`Automação_busca_preços.py`):.
@@ -84,9 +88,9 @@ automacao-busca-precos/
 - Destinatário
 
 5. Execute o projeto:
-   ```bash  
+   ```plaintext  
    python Automação_busca_preços.py
-
+   ```
 
 ## ⚠️ Observações Importantes
 
